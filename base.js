@@ -82,7 +82,7 @@ const buildChart = async () => {
   const data = await getData();
 
   const labels = Object.values(data.dimension.Vuosi.category.label);
-  const values = data.value;  // Population values
+  const values = data.value;
 
   let populationGrowth = [];
   for (let i = 0; i < labels.length; i++) {
