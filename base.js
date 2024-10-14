@@ -42,8 +42,8 @@ const getData = async () => {
     if(!res.ok) {
         return;
     }
-    const data = /*await*/ res.json()
-    return data;
+    const data = await res.json()
+    return data
 }
 
 const buildChart = async () => {
@@ -56,7 +56,7 @@ const buildChart = async () => {
 
   labels.forEach((year, index) => {
       populationData.push(values[index]);
-  });
+  })
   /*
   labels.forEach((year, index) => {
     for(let i = 0; i < 22; i++){
@@ -70,12 +70,12 @@ const buildChart = async () => {
           name: "Population",
           values: populationData
       }
-  ];
+  ]
 
   const chartData = {
       labels: labels,
       datasets: populations
-  };
+  }
 
   const chart = new frappe.Chart("#chart", {
       title: "Population Growth 2000-2021",
@@ -90,15 +90,7 @@ const buildChart = async () => {
           hideDots: 1,
           regionFill: 0
       }*/
-  });
-
-  setTimeout(() => {
-    if (document.querySelector("#chart g.dataset-0 path")) {
-        console.log("Chart rendered successfully!");
-    } else {
-        console.error("Chart did not render.");
-    }
-  }, 1000);
+  })
 
 }
 
