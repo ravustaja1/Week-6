@@ -80,6 +80,15 @@ const buildChart = async () => {
           regionFill: 0
       }
   });
+
+  setTimeout(() => {
+    if (document.querySelector("#chart g.dataset-0 path")) {
+        console.log("Chart rendered successfully!");
+    } else {
+        console.error("Chart did not render.");
+    }
+}, 1000);
 }
+
 
 buildChart();
