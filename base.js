@@ -45,73 +45,7 @@ const getData = async () => {
     const data = await res.json()
     return data;
 }
-/*
-const buildChart = async () => {
-    const data = await getData();
 
-    const labels = Object.values(data.dimension.Vuosi.category.label);
-    const values = data.value;
-
-    const chartData = {
-        labels: labels,
-        datasets: [
-            {
-                name: "Population",
-                values: values
-            }
-        ]
-    };
-
-    const chart = new frappe.Chart("#chart", {
-        title: "Population Growth 2000-2021",
-        data: chartData,
-        type: "line",
-        height: 450,
-        colors: ['#eb5146'],
-        lineOptions: {
-            hideDots: 1,
-            regionFill: 0
-        }
-    });
-
-  cy.wait(5000);
-  cy.get('#chart g.dataset-0 path', { timeout: 10000 }).should('be.visible');
-}
-
-const buildChart = async () => {
-  const data = await getData();
-
-  const labels = Object.values(data.dimension.Vuosi.category.label);
-  const values = data.value;
-
-  let populationGrowth = [];
-  for (let i = 0; i < labels.length; i++) {
-      populationGrowth.push(values[i]);
-  }
-
-  const dataset = {
-      name: "Population",
-      values: populationGrowth
-  };
-
-  const chartData = {
-      labels: labels,
-      datasets: [dataset]
-  };
-
-  const chart = new frappe.Chart("#chart", {
-      title: "Population Growth 2000-2021",
-      data: chartData,
-      type: "line",
-      height: 450,
-      colors: ['#eb5146'],
-      lineOptions: {
-          hideDots: 1,
-          regionFill: 0
-      }
-  });
-}
-  */
 const buildChart = async () => {
   const data = await getData();
 
@@ -123,7 +57,7 @@ const buildChart = async () => {
       populationData.push(values[index]);
   });
 
-  const datasets = [
+  const populations = [
       {
           name: "Population",
           values: populationData
@@ -132,7 +66,7 @@ const buildChart = async () => {
 
   const chartData = {
       labels: labels,
-      datasets: datasets
+      datasets: populations
   };
 
   const chart = new frappe.Chart("#chart", {
