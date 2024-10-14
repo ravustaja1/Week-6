@@ -136,7 +136,7 @@ const buildChart = async () => {
   };
 
   const chart = new frappe.Chart("#chart", {
-      title: "Population Growth in Finland (2000-2021)",
+      title: "Population Growth 2000-2021",
       data: chartData,
       type: "line",
       height: 450,
