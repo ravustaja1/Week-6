@@ -77,7 +77,7 @@ const buildChart = async () => {
   cy.wait(5000);
   cy.get('#chart g.dataset-0 path', { timeout: 10000 }).should('be.visible');
 }
-*/
+
 const buildChart = async () => {
   const data = await getData();
 
@@ -101,6 +101,42 @@ const buildChart = async () => {
 
   const chart = new frappe.Chart("#chart", {
       title: "Population Growth 2000-2021",
+      data: chartData,
+      type: "line",
+      height: 450,
+      colors: ['#eb5146'],
+      lineOptions: {
+          hideDots: 1,
+          regionFill: 0
+      }
+  });
+}
+  */
+const buildChart = async () => {
+  const data = await getData();
+
+  const labels = Object.values(data.dimension.Vuosi.category.label);
+  const values = data.value;
+
+  let populationData = [];
+  labels.forEach((year, index) => {
+      populationData.push(values[index]);
+  });
+
+  const datasets = [
+      {
+          name: "Population",
+          values: populationData
+      }
+  ];
+
+  const chartData = {
+      labels: labels,
+      datasets: datasets
+  };
+
+  const chart = new frappe.Chart("#chart", {
+      title: "Population Growth in Finland (2000-2021)",
       data: chartData,
       type: "line",
       height: 450,
