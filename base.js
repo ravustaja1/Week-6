@@ -73,6 +73,9 @@ const buildChart = async () => {
             regionFill: 0
         }
     });
+
+  cy.wait(5000);
+  cy.get('#chart g.dataset-0 path', { timeout: 10000 }).should('be.visible');
 }
 
 buildChart();
