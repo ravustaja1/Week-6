@@ -74,20 +74,16 @@ const buildChart = async () => {
       data: chartData,
       type: "line",
       height: 450,
-      colors: ['#eb5146'],
+      colors: ['#eb5146'],/*
+      barOptions: {
+        stacked: 1
+      },
       lineOptions: {
           hideDots: 1,
           regionFill: 0
-      }
+      }*/
   });
 
-  setTimeout(() => {
-    if (document.querySelector("#chart g.dataset-0 path")) {
-        console.log("Chart rendered successfully!");
-    } else {
-        console.error("Chart did not render.");
-    }
-}, 1000);
 }
 
 
