@@ -53,16 +53,17 @@ const buildChart = async () => {
   const values = data.value;
 
   let populationData = [];
-  /*
+
   labels.forEach((year, index) => {
       populationData.push(values[index]);
-  });*/
+  });
+  /*
   labels.forEach((year, index) => {
     for(let i = 0; i < 22; i++){
       populationData.push(values[i])
     }
-
   })
+  */
 
   const populations = [
       {
