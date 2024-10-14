@@ -42,7 +42,7 @@ const getData = async () => {
     if(!res.ok) {
         return;
     }
-    const data = await res.json()
+    const data = /*await*/ res.json()
     return data;
 }
 
@@ -74,7 +74,7 @@ const buildChart = async () => {
       data: chartData,
       type: "line",
       height: 450,
-      colors: ['#eb5146'],/*
+      colors: ['#eb5146']/*,
       barOptions: {
         stacked: 1
       },
